@@ -4,7 +4,7 @@ import OverviewDiagram from '../diagrams/OverviewDiagram'
 const topHtml = `
   <div class="sh">
     <h2>System Overview</h2>
-    <p class="sd">Topsort is a retail media infrastructure provider. Customers integrate it as an external service into their marketplace via 3 API boundaries.</p>
+    <p class="sd">Topsort is a retail media infrastructure provider. This reference walks through an example customer integration focused on the 3 core API boundaries: Catalog, Auctions, and Events. Topsort also offers additional APIs (Campaigns, Billing, Reporting, Audiences, Invitations) for campaign management and operational workflows.</p>
   </div>
 
   <div class="g4">
@@ -65,7 +65,7 @@ const bottomHtml = `
   </div>
 
   <div class="callout co-blue">
-    <strong>Key Architectural Insight:</strong> The marketplace owns its entire stack and integrates with Topsort as an external service. The 3 API boundaries (Catalog, Auctions, Events) are where all integration complexity lives.
+    <strong>Key Architectural Insight:</strong> The customer marketplace owns its entire stack and integrates with Topsort as an external service. This example focuses on the 3 core API boundaries (Catalog, Auctions, Events) where the primary integration complexity lives. Additional APIs like Campaigns, Billing, and Reporting extend the platform for advertiser management and analytics.
   </div>
 `
 
