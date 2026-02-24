@@ -88,7 +88,7 @@ const chunk2 = `
 
   <div class="sep"></div>
 
-  <h3><span class="badge" style="background:#34d399;">Phase 3</span> Auction Call</h3>
+  <h3><span class="badge" style="background:#34d399;color:#0c0f19;">Phase 3</span> Auction Call</h3>
   <p>Topsort returns winning sponsored products ranked by predicted relevance &times; bid.</p>
 `
 

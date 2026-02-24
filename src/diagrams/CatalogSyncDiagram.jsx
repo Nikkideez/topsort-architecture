@@ -16,7 +16,7 @@ const INITIAL_NODES = [
   { id: 'catalog-svc', type: 'service', position: { x: 170, y: 40 }, data: { label: 'Catalog Service', subtitle: 'existing — product CRUD', borderColor: '#4f8ff7' } },
   { id: 'postgres', type: 'datastore', position: { x: 190.32457030402557, y: 140 }, data: { label: 'PostgreSQL', subtitle: 'products table' } },
   { id: 'kafka', type: 'datastore', position: { x: 381.29142794668087, y: 44.516571178672365 }, data: { label: 'Kafka', subtitle: 'catalog.updates topic' } },
-  { id: 'catalog-sync', type: 'service', position: { x: 574.5003998573704, y: 40.91674630667033 }, data: { label: 'Catalog Sync Service', subtitle: 'NEW — transform + batch (max 500/req)', borderColor: '#34d399' } },
+  { id: 'catalog-sync', type: 'service', position: { x: 574.5003998573704, y: 40.91674630667033 }, data: { label: 'Catalog Sync Service', subtitle: 'transform + batch (max 500/req)', borderColor: '#34d399' } },
   { id: 'topsort-api', type: 'external', position: { x: 841.9302726138603, y: 41.1291427946681 }, data: { label: 'Topsort Catalog API', subtitle: '/public/v1/.../products', borderColor: '#a78bfa' } },
   { id: 'product-index', type: 'external', position: { x: 1034.3452868508107, y: 40.97543224780187 }, data: { label: 'Product Index', subtitle: 'for auctions', borderColor: '#a78bfa', dashed: true } },
 ]

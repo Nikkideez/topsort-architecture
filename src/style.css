@@ -142,7 +142,7 @@ svg text{font-family:'DM Sans',sans-serif} svg .mono{font-family:'IBM Plex Mono'
 .flow-btn[data-flow="catalog"].active{background:rgba(52,211,153,0.2);border-color:var(--green);color:var(--green)}
 .flow-btn[data-flow="events"].active{background:rgba(251,191,36,0.2);border-color:var(--amber);color:var(--amber)}
 .flow-btn[data-flow="purchase"].active{background:rgba(251,113,133,0.2);border-color:var(--rose);color:var(--rose)}
-.flow-desc{text-align:center;min-height:48px;margin-bottom:12px;padding:10px 20px;background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;font-size:0.76rem;color:var(--tx);line-height:1.6;max-width:900px;margin-left:auto;margin-right:auto}
+.flow-desc{text-align:center;height:72px;margin-bottom:12px;padding:10px 20px;background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;font-size:0.76rem;color:var(--tx);line-height:1.6;max-width:900px;margin-left:auto;margin-right:auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .flow-desc strong{color:var(--txb)}
 .flow-desc code{font-family:var(--mono);font-size:0.68rem;background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px}
 .legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;padding:10px 16px;background:var(--bg2);border:1px solid var(--bdr);border-radius:8px}

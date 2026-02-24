@@ -6,7 +6,7 @@ export default {
     { id: "catalog-svc", type: "service", position: { x: 170, y: 40 }, data: { label: "Catalog Service", subtitle: "existing \u2014 product CRUD", borderColor: "#4f8ff7" } },
     { id: "postgres", type: "datastore", position: { x: 170, y: 140 }, data: { label: "PostgreSQL", subtitle: "products table" } },
     { id: "kafka", type: "datastore", position: { x: 370, y: 40 }, data: { label: "Kafka", subtitle: "catalog.updates topic" } },
-    { id: "catalog-sync", type: "service", position: { x: 530, y: 40 }, data: { label: "Catalog Sync Service", subtitle: "NEW \u2014 transform + batch (max 500/req)", borderColor: "#34d399" } },
+    { id: "catalog-sync", type: "service", position: { x: 530, y: 40 }, data: { label: "Catalog Sync Service", subtitle: "transform + batch (max 500/req)", borderColor: "#34d399" } },
     { id: "topsort-api", type: "external", position: { x: 740, y: 40 }, data: { label: "Topsort Catalog API", subtitle: "/public/v1/.../products", borderColor: "#a78bfa" } },
     { id: "product-index", type: "external", position: { x: 940, y: 40 }, data: { label: "Product Index", subtitle: "for auctions", borderColor: "#a78bfa", dashed: true } },
   ],

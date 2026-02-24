@@ -2,11 +2,11 @@ export default {
   meta: { name: "architecture", storageKey: "arch-diagram-positions", height: 800 },
   zones: [
     { id: "zone-client", type: "zone", position: { x: 0, y: 0 }, data: { label: "Client Layer", color: "#34d399", width: 680, height: 90 } },
-    { id: "zone-backend", type: "zone", position: { x: 0, y: 110 }, data: { label: "Your Marketplace Backend", color: "#a78bfa", width: 500, height: 380 } },
+    { id: "zone-backend", type: "zone", position: { x: 0, y: 110 }, data: { label: "Customer Marketplace Backend", color: "#a78bfa", width: 500, height: 380 } },
     { id: "zone-topsort", type: "zone", position: { x: 520, y: 110 }, data: { label: "Topsort (External)", color: "#4f8ff7", width: 350, height: 380 } },
     { id: "zone-data", type: "zone", position: { x: 0, y: 510 }, data: { label: "Data Layer", color: "#fbbf24", width: 500, height: 110 } },
     { id: "zone-ts-internal", type: "zone", position: { x: 520, y: 510 }, data: { label: "Topsort Internal", color: "#4f8ff7", width: 350, height: 110 } },
-    { id: "zone-reporting", type: "zone", position: { x: 0, y: 640 }, data: { label: "Your Reporting", color: "#a78bfa", width: 500, height: 90 } },
+    { id: "zone-reporting", type: "zone", position: { x: 0, y: 640 }, data: { label: "Customer Reporting", color: "#a78bfa", width: 500, height: 90 } },
     { id: "zone-ts-outputs", type: "zone", position: { x: 520, y: 640 }, data: { label: "Topsort Outputs", color: "#4f8ff7", width: 350, height: 90 } },
   ],
   nodes: [
@@ -19,7 +19,7 @@ export default {
     { id: "order", type: "service", position: { x: 370, y: 240 }, data: { label: "Order Service", subtitle: "Checkout", borderColor: "#a78bfa", flows: ["purchase"] } },
     { id: "catalog-svc", type: "service", position: { x: 30, y: 330 }, data: { label: "Catalog Service", subtitle: "EXISTING \u2014 product CRUD", borderColor: "#34d399", flows: ["catalog"] } },
     { id: "event-relay", type: "service", position: { x: 370, y: 330 }, data: { label: "Event Relay", subtitle: "Batch / Retry / DLQ", borderColor: "#fbbf24", flows: ["events","purchase"] } },
-    { id: "catalog-sync", type: "service", position: { x: 30, y: 420 }, data: { label: "Catalog Sync", badge: "NEW \u2014 for Topsort", subtitle: "transform + batch", borderColor: "#22d3ee", flows: ["catalog"] } },
+    { id: "catalog-sync", type: "service", position: { x: 30, y: 420 }, data: { label: "Catalog Sync", subtitle: "transform + batch", borderColor: "#22d3ee", flows: ["catalog"] } },
     { id: "ts-apigw", type: "external", position: { x: 560, y: 140 }, data: { label: "Topsort API GW", subtitle: "Auth / Routing", flows: ["search","catalog","events","purchase"] } },
     { id: "auctions-api", type: "external", position: { x: 560, y: 240 }, data: { label: "Auctions API", subtitle: "POST /v2/auctions", flows: ["search"] } },
     { id: "catalog-api", type: "external", position: { x: 730, y: 240 }, data: { label: "Catalog API", subtitle: "PUT /public/v1/...", borderColor: "#34d399", flows: ["catalog"] } },

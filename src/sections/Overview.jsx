@@ -4,14 +4,14 @@ import OverviewDiagram from '../diagrams/OverviewDiagram'
 const topHtml = `
   <div class="sh">
     <h2>System Overview</h2>
-    <p class="sd">Topsort is a retail media infrastructure provider. You integrate it as an external service into your marketplace via 3 API boundaries.</p>
+    <p class="sd">Topsort is a retail media infrastructure provider. Customers integrate it as an external service into their marketplace via 3 API boundaries.</p>
   </div>
 
   <div class="g4">
     <div class="c num-card"><div class="big" style="color:var(--green)">3</div><div class="lbl">API Integration Points<br>(Catalog, Auctions, Events)</div></div>
     <div class="c num-card"><div class="big" style="color:var(--blue)">2</div><div class="lbl">API Key Types<br>(Marketplace + Advanced)</div></div>
     <div class="c num-card"><div class="big" style="color:var(--amber)">10K</div><div class="lbl">req/sec Rate Limit<br>(Auctions & Events, prod)</div></div>
-    <div class="c num-card"><div class="big" style="color:var(--rose)">&lt;100ms</div><div class="lbl">Auction Latency Target<br>(Hard timeout on your side)</div></div>
+    <div class="c num-card"><div class="big" style="color:var(--rose)">&lt;100ms</div><div class="lbl">Auction Latency Target<br>(Hard timeout on customer side)</div></div>
   </div>
 `
 
@@ -22,7 +22,7 @@ const bottomHtml = `
       <div class="flow">
         <div class="fs" style="border-left:3px solid var(--green)"><span class="n">PHASE 1</span><span class="t">Catalog Sync</span><span class="d">Push products, vendors, categories</span><span class="tech">PUT /public/v1/.../products</span></div>
         <div class="fa">&rarr;</div>
-        <div class="fs"><span class="n">PHASE 2</span><span class="t">User Searches</span><span class="d">Organic ES query</span><span class="tech">Your Search Service</span></div>
+        <div class="fs"><span class="n">PHASE 2</span><span class="t">User Searches</span><span class="d">Organic ES query</span><span class="tech">Customer Search Service</span></div>
         <div class="fa">&rarr;</div>
         <div class="fs" style="border-left:3px solid var(--blue)"><span class="n">PHASE 3</span><span class="t">Auction</span><span class="d">Get sponsored products</span><span class="tech">POST /v2/auctions</span></div>
         <div class="fa">&rarr;</div>
@@ -37,7 +37,7 @@ const bottomHtml = `
 
   <div class="g2">
     <div class="c c-green">
-      <h3><span class="own own-mp">Your Marketplace</span></h3>
+      <h3><span class="own own-mp">Customer Marketplace</span></h3>
       <ul>
         <li>Frontend (React/Next.js) &mdash; search, product pages, checkout</li>
         <li>API Gateway &mdash; routing, rate limiting, OAuth 2.0</li>

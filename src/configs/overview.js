@@ -1,7 +1,7 @@
 export default {
   meta: { name: "overview", storageKey: "overview-diagram-positions", height: 600 },
   zones: [
-    { id: "zone-mkt", type: "zone", position: { x: -15, y: -15 }, data: { label: "Your Marketplace", color: "#34d399", width: 360, height: 400 } },
+    { id: "zone-mkt", type: "zone", position: { x: -15, y: -15 }, data: { label: "Customer Marketplace", color: "#34d399", width: 360, height: 400 } },
     { id: "zone-infra", type: "zone", position: { x: 355, y: -15 }, data: { label: "Infrastructure", color: "#fbbf24", width: 170, height: 365 } },
     { id: "zone-ts", type: "zone", position: { x: 535, y: -15 }, data: { label: "Topsort", color: "#4f8ff7", width: 340, height: 400 } },
   ],
@@ -10,9 +10,9 @@ export default {
     { id: "apigw", type: "service", position: { x: 10, y: 95 }, data: { label: "API Gateway", subtitle: "Auth / Rate Limit", borderColor: "#34d399" } },
     { id: "search-svc", type: "service", position: { x: 10, y: 175 }, data: { label: "Search Service", subtitle: "Organic + Merge", borderColor: "#34d399" } },
     { id: "ts-client", type: "service", position: { x: 190, y: 175 }, data: { label: "Topsort Client", subtitle: "Circuit Breaker", borderColor: "#34d399" } },
-    { id: "catalog-svc", type: "service", position: { x: 10, y: 255 }, data: { label: "Catalog Service", badge: "EXISTING", borderColor: "#34d399" } },
+    { id: "catalog-svc", type: "service", position: { x: 10, y: 255 }, data: { label: "Catalog Service", borderColor: "#34d399" } },
     { id: "event-relay", type: "service", position: { x: 190, y: 255 }, data: { label: "Event Relay", subtitle: "Batch + Retry", borderColor: "#34d399" } },
-    { id: "catalog-sync", type: "service", position: { x: 10, y: 345 }, data: { label: "Catalog Sync", badge: "NEW", borderColor: "#22d3ee" } },
+    { id: "catalog-sync", type: "service", position: { x: 10, y: 345 }, data: { label: "Catalog Sync", borderColor: "#22d3ee" } },
     { id: "es", type: "datastore", position: { x: 370, y: 110 }, data: { label: "ES", subtitle: "Search Index" } },
     { id: "postgres", type: "datastore", position: { x: 370, y: 190 }, data: { label: "PostgreSQL", subtitle: "Products/Orders" } },
     { id: "kafka", type: "datastore", position: { x: 370, y: 300 }, data: { label: "Kafka", subtitle: "Event Bus" } },
