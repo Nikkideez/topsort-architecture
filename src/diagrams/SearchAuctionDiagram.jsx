@@ -15,7 +15,7 @@ const INITIAL_NODES = [
   { id: 'es', type: 'service', position: { x: 250, y: 0 }, data: { label: 'Elasticsearch', subtitle: 'organic results (~40ms)', borderColor: '#4f8ff7' } },
   { id: 'topsort', type: 'external', position: { x: 250, y: 160 }, data: { label: 'Topsort Auction', subtitle: 'listings + banners (~15ms p99)', borderColor: '#34d399' } },
   { id: 'merge', type: 'service', position: { x: 500, y: 80 }, data: { label: 'Merge + Route', subtitle: 'listings → interleave / banners → slots', borderColor: '#fbbf24' } },
-  { id: 'response', type: 'service', position: { x: 680, y: 80 }, data: { label: 'API Response', subtitle: 'to frontend', borderColor: '#fbbf24' } },
+  { id: 'response', type: 'service', position: { x: 789.0227298960373, y: 80 }, data: { label: 'API Response', subtitle: 'to frontend', borderColor: '#fbbf24' } },
 ]
 
 const DEFAULT_EDGES = [

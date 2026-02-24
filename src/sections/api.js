@@ -6,7 +6,7 @@ export const api = `
   <div class="g2">
     <div class="c c-blue">
       <h3>Authentication</h3>
-      <p>All requests require a <span class="code">Bearer</span> token in the <span class="code">Authorization</span> header. Topsort issues two distinct API key types:</p>
+      <p>All requests require a <code>Bearer</code> token in the <code>Authorization</code> header. Topsort issues two distinct API key types:</p>
       <table class="tbl">
         <thead>
           <tr>
@@ -19,7 +19,7 @@ export const api = `
           <tr>
             <td><strong>Marketplace API Key</strong></td>
             <td>Core auction &amp; event tracking</td>
-            <td><span class="code">POST /v2/auctions</span>, <span class="code">POST /v2/events</span></td>
+            <td><code>POST /v2/auctions</code>, <code>POST /v2/events</code></td>
           </tr>
           <tr>
             <td><strong>Advanced API Key</strong></td>
@@ -48,23 +48,23 @@ export const api = `
       <tbody>
         <tr>
           <td><strong>Auctions &amp; Events</strong></td>
-          <td><span class="code">10,000 req/sec</span></td>
-          <td><span class="code">10,000 req/sec</span></td>
+          <td><code>10,000 req/sec</code></td>
+          <td><code>10,000 req/sec</code></td>
         </tr>
         <tr>
           <td><strong>Catalog API</strong></td>
-          <td><span class="code">10 req/sec</span></td>
-          <td><span class="code">4 req/sec</span></td>
+          <td><code>10 req/sec</code></td>
+          <td><code>4 req/sec</code></td>
         </tr>
         <tr>
           <td><strong>Other Advanced APIs</strong></td>
-          <td><span class="code">45 req/2sec</span></td>
-          <td><span class="code">5 req/2sec</span></td>
+          <td><code>45 req/2sec</code></td>
+          <td><code>5 req/2sec</code></td>
         </tr>
       </tbody>
     </table>
     <div class="callout co-blue">
-      <strong>429 Too Many Requests:</strong> If you exceed these limits the API responds with HTTP 429. Implement exponential back-off and respect the <span class="code">Retry-After</span> header.
+      <strong>429 Too Many Requests:</strong> If you exceed these limits the API responds with HTTP 429. Implement exponential back-off and respect the <code>Retry-After</code> header.
     </div>
   </div>
 
@@ -83,78 +83,78 @@ export const api = `
       <tbody>
         <!-- Marketplace Endpoints -->
         <tr>
-          <td><span class="code">POST</span></td>
-          <td><span class="code">/v2/auctions</span></td>
+          <td><code>POST</code></td>
+          <td><code>/v2/auctions</code></td>
           <td>Marketplace</td>
           <td>1–5 auctions per request, 1–40 slots each</td>
         </tr>
         <tr>
-          <td><span class="code">POST</span></td>
-          <td><span class="code">/v2/events</span></td>
+          <td><code>POST</code></td>
+          <td><code>/v2/events</code></td>
           <td>Marketplace</td>
           <td>Up to 50 events per event type per request</td>
         </tr>
         <!-- Catalog Endpoints -->
         <tr>
-          <td><span class="code">PUT</span></td>
-          <td><span class="code">/public/v1/.../catalogs/products</span></td>
+          <td><code>PUT</code></td>
+          <td><code>/public/v1/.../catalogs/products</code></td>
           <td>Advanced</td>
           <td>Up to 500 products per batch</td>
         </tr>
         <tr>
-          <td><span class="code">PUT</span></td>
-          <td><span class="code">/public/v1/.../catalogs/vendors</span></td>
+          <td><code>PUT</code></td>
+          <td><code>/public/v1/.../catalogs/vendors</code></td>
           <td>Advanced</td>
           <td>Up to 500 vendors per batch</td>
         </tr>
         <tr>
-          <td><span class="code">PUT</span></td>
-          <td><span class="code">/public/v1/.../catalogs/categories</span></td>
+          <td><code>PUT</code></td>
+          <td><code>/public/v1/.../catalogs/categories</code></td>
           <td>Advanced</td>
           <td>Up to 500 categories per batch</td>
         </tr>
         <!-- Campaign Endpoints -->
         <tr>
-          <td><span class="code">POST</span></td>
-          <td><span class="code">/public/v1/.../campaigns</span></td>
+          <td><code>POST</code></td>
+          <td><code>/public/v1/.../campaigns</code></td>
           <td>Advanced</td>
           <td>Create a new campaign</td>
         </tr>
         <tr>
-          <td><span class="code">GET</span></td>
-          <td><span class="code">/public/v1/.../campaigns</span></td>
+          <td><code>GET</code></td>
+          <td><code>/public/v1/.../campaigns</code></td>
           <td>Advanced</td>
           <td>List campaigns with pagination</td>
         </tr>
         <tr>
-          <td><span class="code">PATCH</span></td>
-          <td><span class="code">/public/v1/.../campaigns/{id}</span></td>
+          <td><code>PATCH</code></td>
+          <td><code>/public/v1/.../campaigns/{id}</code></td>
           <td>Advanced</td>
           <td>Update campaign budget, status, or targeting</td>
         </tr>
         <!-- Billing Endpoints -->
         <tr>
-          <td><span class="code">GET</span></td>
-          <td><span class="code">/public/v1/.../billing/invoices</span></td>
+          <td><code>GET</code></td>
+          <td><code>/public/v1/.../billing/invoices</code></td>
           <td>Advanced</td>
           <td>Retrieve invoices for a vendor</td>
         </tr>
         <tr>
-          <td><span class="code">GET</span></td>
-          <td><span class="code">/public/v1/.../billing/balance</span></td>
+          <td><code>GET</code></td>
+          <td><code>/public/v1/.../billing/balance</code></td>
           <td>Advanced</td>
           <td>Current balance and credit info</td>
         </tr>
         <!-- Reporting Endpoints -->
         <tr>
-          <td><span class="code">GET</span></td>
-          <td><span class="code">/public/v1/.../reporting/campaigns</span></td>
+          <td><code>GET</code></td>
+          <td><code>/public/v1/.../reporting/campaigns</code></td>
           <td>Advanced</td>
           <td>Campaign performance metrics</td>
         </tr>
         <tr>
-          <td><span class="code">GET</span></td>
-          <td><span class="code">/public/v1/.../reporting/products</span></td>
+          <td><code>GET</code></td>
+          <td><code>/public/v1/.../reporting/products</code></td>
           <td>Advanced</td>
           <td>Per-product spend &amp; attribution data</td>
         </tr>
@@ -167,7 +167,7 @@ export const api = `
     <!-- Auction Types -->
     <div class="c c-amber">
       <h3>Auction Types</h3>
-      <p>The <span class="code">type</span> field in each auction object controls placement format:</p>
+      <p>The <code>type</code> field in each auction object controls placement format:</p>
       <table class="tbl">
         <thead>
           <tr>
@@ -177,19 +177,19 @@ export const api = `
         </thead>
         <tbody>
           <tr>
-            <td><span class="code">listings</span></td>
+            <td><code>listings</code></td>
             <td>Sponsored product listings in search results or category pages. The most common auction type.</td>
           </tr>
           <tr>
-            <td><span class="code">banners</span></td>
+            <td><code>banners</code></td>
             <td>Display banner placements — hero images, sidebar ads, and interstitial creatives.</td>
           </tr>
           <tr>
-            <td><span class="code">sponsored-brand</span></td>
+            <td><code>sponsored-brand</code></td>
             <td>Brand-level placements that highlight a vendor or store rather than individual products.</td>
           </tr>
           <tr>
-            <td><span class="code">travel</span></td>
+            <td><code>travel</code></td>
             <td>Travel-specific auction format for accommodations, flights, and experience placements.</td>
           </tr>
         </tbody>
@@ -199,7 +199,7 @@ export const api = `
     <!-- Event Types -->
     <div class="c c-blue">
       <h3>Event Types</h3>
-      <p>Events are reported via <span class="code">POST /v2/events</span> to track user interactions:</p>
+      <p>Events are reported via <code>POST /v2/events</code> to track user interactions:</p>
       <table class="tbl">
         <thead>
           <tr>
@@ -209,19 +209,19 @@ export const api = `
         </thead>
         <tbody>
           <tr>
-            <td><span class="code">impressions</span></td>
+            <td><code>impressions</code></td>
             <td>Fired when a promoted item becomes visible in the viewport. Required for billing on CPM campaigns.</td>
           </tr>
           <tr>
-            <td><span class="code">clicks</span></td>
+            <td><code>clicks</code></td>
             <td>Fired on user tap/click of a promoted item. Primary billing event for CPC campaigns.</td>
           </tr>
           <tr>
-            <td><span class="code">purchases</span></td>
+            <td><code>purchases</code></td>
             <td>Fired on successful checkout. Used for ROAS attribution and conversion tracking.</td>
           </tr>
           <tr>
-            <td><span class="code">pageviews</span></td>
+            <td><code>pageviews</code></td>
             <td>Fired on product detail page (PDP) visits. Supports view-through attribution models.</td>
           </tr>
         </tbody>
@@ -236,9 +236,9 @@ export const api = `
       <h4>2xx — Success</h4>
       <table class="tbl">
         <tbody>
-          <tr><td><span class="code">200</span></td><td>OK — Request succeeded</td></tr>
-          <tr><td><span class="code">201</span></td><td>Created — Resource created</td></tr>
-          <tr><td><span class="code">204</span></td><td>No Content — Deleted successfully</td></tr>
+          <tr><td><code>200</code></td><td>OK — Request succeeded</td></tr>
+          <tr><td><code>201</code></td><td>Created — Resource created</td></tr>
+          <tr><td><code>204</code></td><td>No Content — Deleted successfully</td></tr>
         </tbody>
       </table>
     </div>
@@ -246,13 +246,13 @@ export const api = `
       <h4>4xx — Client Errors</h4>
       <table class="tbl">
         <tbody>
-          <tr><td><span class="code">400</span></td><td>Bad Request — Malformed payload or missing fields</td></tr>
-          <tr><td><span class="code">401</span></td><td>Unauthorized — Invalid or missing API key</td></tr>
-          <tr><td><span class="code">403</span></td><td>Forbidden — Key lacks required scope</td></tr>
-          <tr><td><span class="code">404</span></td><td>Not Found — Resource does not exist</td></tr>
-          <tr><td><span class="code">409</span></td><td>Conflict — Duplicate or version mismatch</td></tr>
-          <tr><td><span class="code">422</span></td><td>Unprocessable — Validation error on fields</td></tr>
-          <tr><td><span class="code">429</span></td><td>Too Many Requests — Rate limit exceeded</td></tr>
+          <tr><td><code>400</code></td><td>Bad Request — Malformed payload or missing fields</td></tr>
+          <tr><td><code>401</code></td><td>Unauthorized — Invalid or missing API key</td></tr>
+          <tr><td><code>403</code></td><td>Forbidden — Key lacks required scope</td></tr>
+          <tr><td><code>404</code></td><td>Not Found — Resource does not exist</td></tr>
+          <tr><td><code>409</code></td><td>Conflict — Duplicate or version mismatch</td></tr>
+          <tr><td><code>422</code></td><td>Unprocessable — Validation error on fields</td></tr>
+          <tr><td><code>429</code></td><td>Too Many Requests — Rate limit exceeded</td></tr>
         </tbody>
       </table>
     </div>
@@ -260,10 +260,10 @@ export const api = `
       <h4>5xx — Server Errors</h4>
       <table class="tbl">
         <tbody>
-          <tr><td><span class="code">500</span></td><td>Internal Server Error — Unexpected failure</td></tr>
-          <tr><td><span class="code">502</span></td><td>Bad Gateway — Upstream service unavailable</td></tr>
-          <tr><td><span class="code">503</span></td><td>Service Unavailable — Maintenance or overload</td></tr>
-          <tr><td><span class="code">504</span></td><td>Gateway Timeout — Upstream did not respond</td></tr>
+          <tr><td><code>500</code></td><td>Internal Server Error — Unexpected failure</td></tr>
+          <tr><td><code>502</code></td><td>Bad Gateway — Upstream service unavailable</td></tr>
+          <tr><td><code>503</code></td><td>Service Unavailable — Maintenance or overload</td></tr>
+          <tr><td><code>504</code></td><td>Gateway Timeout — Upstream did not respond</td></tr>
         </tbody>
       </table>
     </div>

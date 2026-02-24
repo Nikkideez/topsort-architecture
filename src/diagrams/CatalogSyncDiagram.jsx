@@ -14,11 +14,11 @@ const edgeTypes = { labeled: LabeledEdge }
 const INITIAL_NODES = [
   { id: 'seller', type: 'service', position: { x: 0, y: 40 }, data: { label: 'Seller', subtitle: 'updates product', borderColor: '#fb7185' } },
   { id: 'catalog-svc', type: 'service', position: { x: 170, y: 40 }, data: { label: 'Catalog Service', subtitle: 'existing — product CRUD', borderColor: '#4f8ff7' } },
-  { id: 'postgres', type: 'datastore', position: { x: 170, y: 140 }, data: { label: 'PostgreSQL', subtitle: 'products table' } },
-  { id: 'kafka', type: 'datastore', position: { x: 370, y: 40 }, data: { label: 'Kafka', subtitle: 'catalog.updates topic' } },
-  { id: 'catalog-sync', type: 'service', position: { x: 530, y: 40 }, data: { label: 'Catalog Sync Service', subtitle: 'NEW — transform + batch (max 500/req)', borderColor: '#34d399' } },
-  { id: 'topsort-api', type: 'external', position: { x: 740, y: 40 }, data: { label: 'Topsort Catalog API', subtitle: '/public/v1/.../products', borderColor: '#a78bfa' } },
-  { id: 'product-index', type: 'external', position: { x: 940, y: 40 }, data: { label: 'Product Index', subtitle: 'for auctions', borderColor: '#a78bfa', dashed: true } },
+  { id: 'postgres', type: 'datastore', position: { x: 190.32457030402557, y: 140 }, data: { label: 'PostgreSQL', subtitle: 'products table' } },
+  { id: 'kafka', type: 'datastore', position: { x: 381.29142794668087, y: 44.516571178672365 }, data: { label: 'Kafka', subtitle: 'catalog.updates topic' } },
+  { id: 'catalog-sync', type: 'service', position: { x: 574.5003998573704, y: 40.91674630667033 }, data: { label: 'Catalog Sync Service', subtitle: 'NEW — transform + batch (max 500/req)', borderColor: '#34d399' } },
+  { id: 'topsort-api', type: 'external', position: { x: 841.9302726138603, y: 41.1291427946681 }, data: { label: 'Topsort Catalog API', subtitle: '/public/v1/.../products', borderColor: '#a78bfa' } },
+  { id: 'product-index', type: 'external', position: { x: 1034.3452868508107, y: 40.97543224780187 }, data: { label: 'Product Index', subtitle: 'for auctions', borderColor: '#a78bfa', dashed: true } },
 ]
 
 const DEFAULT_EDGES = [
@@ -29,6 +29,7 @@ const DEFAULT_EDGES = [
   { id: 'e5', source: 'catalog-sync', target: 'topsort-api', sourceHandle: 'right', targetHandle: 'left', type: 'labeled', data: { label: 'PUT', color: '#34d399' } },
   { id: 'e6', source: 'topsort-api', target: 'product-index', sourceHandle: 'right', targetHandle: 'left', type: 'labeled', data: { color: '#a78bfa', dashed: true } },
 ]
+
 
 const STORAGE_KEY = 'catalog-sync-diagram-positions'
 

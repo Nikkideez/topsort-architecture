@@ -27,7 +27,9 @@ const chunk1 = `
 `
 
 const chunk2 = `
-  <pre class="code">
+  <div class="c c-cyan fw">
+    <h3>Catalog API Request</h3>
+    <pre class="code">
 <span class="cm">// PUT – batch upsert (max 500/request, 10 req/sec rate limit)</span>
 <span class="kw">PUT</span> <span class="str">https://api.topsort.com/public/v1/catalog-search-service/catalogs/products</span>
 <span class="fn">Authorization</span>: Bearer <span class="hl">&lt;ADVANCED_API_KEY&gt;</span>
@@ -46,32 +48,34 @@ const chunk2 = `
     }
   ]
 }
-  </pre>
-
-  <h4>Schema Mapping</h4>
-  <div class="tbl">
-    <table>
-      <thead>
-        <tr><th>Source Column</th><th>Topsort Field</th><th>Type</th><th>Transform</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>product_id</code></td><td><code>id</code></td><td>string (required)</td><td>cast to string</td></tr>
-        <tr><td><code>title</code></td><td><code>name</code></td><td>string (required)</td><td>trim, max 256 chars</td></tr>
-        <tr><td><code>category_path</code></td><td><code>categories</code></td><td>string[]</td><td>split path into array of IDs</td></tr>
-        <tr><td><code>seller_id</code></td><td><code>vendors</code></td><td>string[]</td><td>wrap in array</td></tr>
-        <tr><td><code>price_cents</code></td><td><code>price</code></td><td>number &gt; 0</td><td><code>price / 100</code></td></tr>
-        <tr><td><code>status</code></td><td><code>active</code></td><td>boolean</td><td><code>status === 'live'</code></td></tr>
-        <tr><td><code>rating</code></td><td><code>quality_score</code></td><td>0 &lt; n &le; 1</td><td><code>rating / 5.0</code></td></tr>
-      </tbody>
-    </table>
+    </pre>
   </div>
 
-  <div class="g2">
-    <div class="callout co-green">
-      <strong>Idempotent:</strong> Product <code>id</code> is the natural key &mdash; re-sends overwrite safely.
+  <div class="c fw">
+    <h3>Schema Mapping</h3>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr><th>Source Column</th><th>Topsort Field</th><th>Type</th><th>Transform</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>product_id</code></td><td><code>id</code></td><td>string (required)</td><td>cast to string</td></tr>
+          <tr><td><code>title</code></td><td><code>name</code></td><td>string (required)</td><td>trim, max 256 chars</td></tr>
+          <tr><td><code>category_path</code></td><td><code>categories</code></td><td>string[]</td><td>split path into array of IDs</td></tr>
+          <tr><td><code>seller_id</code></td><td><code>vendors</code></td><td>string[]</td><td>wrap in array</td></tr>
+          <tr><td><code>price_cents</code></td><td><code>price</code></td><td>number &gt; 0</td><td><code>price / 100</code></td></tr>
+          <tr><td><code>status</code></td><td><code>active</code></td><td>boolean</td><td><code>status === 'live'</code></td></tr>
+          <tr><td><code>rating</code></td><td><code>quality_score</code></td><td>0 &lt; n &le; 1</td><td><code>rating / 5.0</code></td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="callout co-rose">
-      <strong>Throughput:</strong> 10 req/sec &times; 500 products/req = 5,000 products/sec.
+    <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap">
+      <div class="callout co-green" style="flex:1;min-width:200px;margin:0">
+        <strong>Idempotent:</strong> Product <code>id</code> is the natural key &mdash; re-sends overwrite safely.
+      </div>
+      <div class="callout co-rose" style="flex:1;min-width:200px;margin:0">
+        <strong>Throughput:</strong> 10 req/sec &times; 500 products/req = 5,000 products/sec.
+      </div>
     </div>
   </div>
 
@@ -229,57 +233,58 @@ const chunk4 = `
   <h3><span class="badge" style="background:#a78bfa;">Phase 6</span> Attribution &amp; Billing</h3>
   <p>Conversions attributed to originating auction within configurable time windows. Billing is CPC, CPM, or CPA depending on campaign type.</p>
 
-  <div class="tbl">
-    <table>
-      <thead>
-        <tr>
-          <th>Event Type</th>
-          <th>Attribution Window</th>
-          <th>Match Key</th>
-          <th>Billing Model</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Impression</td>
-          <td>Immediate (real-time)</td>
-          <td><code>resolvedBidId</code></td>
-          <td>CPM (per 1 000)</td>
-        </tr>
-        <tr>
-          <td>Click</td>
-          <td>Immediate (real-time)</td>
-          <td><code>resolvedBidId</code></td>
-          <td>CPC</td>
-        </tr>
-        <tr>
-          <td>Purchase &mdash; same session</td>
-          <td>0 &ndash; 30 min</td>
-          <td><code>resolvedBidId</code> + session</td>
-          <td>CPA / ROAS</td>
-        </tr>
-        <tr>
-          <td>Purchase &mdash; click-through</td>
-          <td>0 &ndash; 24 h (default 7 d)</td>
-          <td><code>resolvedBidId</code> + user</td>
-          <td>CPA / ROAS</td>
-        </tr>
-        <tr>
-          <td>Purchase &mdash; view-through</td>
-          <td>0 &ndash; 24 h (default 1 d)</td>
-          <td><code>resolvedBidId</code> + user</td>
-          <td>CPA / ROAS</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="g2">
-    <div class="callout co-amber">
-      <strong>Deduplication:</strong> Last-click attribution &mdash; prevents double-billing.
+  <div class="c c-purple fw">
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr>
+            <th>Event Type</th>
+            <th>Attribution Window</th>
+            <th>Match Key</th>
+            <th>Billing Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Impression</td>
+            <td>Immediate (real-time)</td>
+            <td><code>resolvedBidId</code></td>
+            <td>CPM (per 1 000)</td>
+          </tr>
+          <tr>
+            <td>Click</td>
+            <td>Immediate (real-time)</td>
+            <td><code>resolvedBidId</code></td>
+            <td>CPC</td>
+          </tr>
+          <tr>
+            <td>Purchase &mdash; same session</td>
+            <td>0 &ndash; 30 min</td>
+            <td><code>resolvedBidId</code> + session</td>
+            <td>CPA / ROAS</td>
+          </tr>
+          <tr>
+            <td>Purchase &mdash; click-through</td>
+            <td>0 &ndash; 24 h (default 7 d)</td>
+            <td><code>resolvedBidId</code> + user</td>
+            <td>CPA / ROAS</td>
+          </tr>
+          <tr>
+            <td>Purchase &mdash; view-through</td>
+            <td>0 &ndash; 24 h (default 1 d)</td>
+            <td><code>resolvedBidId</code> + user</td>
+            <td>CPA / ROAS</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="callout co-green">
-      <strong>Reconciliation:</strong> <code>GET /v2/billing/reports</code>, T+1 cadence.
+    <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap">
+      <div class="callout co-amber" style="flex:1;min-width:200px;margin:0">
+        <strong>Deduplication:</strong> Last-click attribution &mdash; prevents double-billing.
+      </div>
+      <div class="callout co-green" style="flex:1;min-width:200px;margin:0">
+        <strong>Reconciliation:</strong> <code>GET /v2/billing/reports</code>, T+1 cadence.
+      </div>
     </div>
   </div>
 `
@@ -293,48 +298,51 @@ const chunk5 = `
     <p>Banners are display ad placements &mdash; hero images, sidebar ads, category takeovers &mdash; that follow the same auction pipeline but differ in rendering, tracking, and merge behavior.</p>
   </div>
 
-  <div class="tbl">
-    <table>
-      <thead>
-        <tr>
-          <th>Phase</th>
-          <th>Listings (Sponsored Products)</th>
-          <th>Banners (Display Ads)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>1 &mdash; Catalog Sync</strong></td>
-          <td>Products pushed via Catalog API</td>
-          <td>Same &mdash; banners bid on catalog products; creative assets uploaded separately</td>
-        </tr>
-        <tr>
-          <td><strong>2 &mdash; User Search</strong></td>
-          <td>Triggered by search query or category browse</td>
-          <td>Triggered by page load (homepage hero, category sidebar)</td>
-        </tr>
-        <tr>
-          <td><strong>3 &mdash; Auction Call</strong></td>
-          <td><code>type: "listings"</code> &mdash; returns product IDs</td>
-          <td><code>type: "banners"</code> &mdash; returns product IDs + <code>asset</code> (image URL)</td>
-        </tr>
-        <tr>
-          <td><strong>4 &mdash; Merge &amp; Render</strong></td>
-          <td>Interleaved into organic results at slot positions</td>
-          <td>No merge &mdash; routed to dedicated placements (hero, sidebar, inline)</td>
-        </tr>
-        <tr>
-          <td><strong>5 &mdash; Event Tracking</strong></td>
-          <td>Impression when product card enters viewport</td>
-          <td>Impression when &ge;50% pixels visible for &ge;1&thinsp;s (IAB standard)</td>
-        </tr>
-        <tr>
-          <td><strong>6 &mdash; Attribution</strong></td>
-          <td>CPC / CPA billing</td>
-          <td>CPM billing (per 1,000 viewable impressions) + optional CPC</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="c c-amber fw">
+    <h3>Listings vs Banners by Phase</h3>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Listings (Sponsored Products)</th>
+            <th>Banners (Display Ads)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1 &mdash; Catalog Sync</strong></td>
+            <td>Products pushed via Catalog API</td>
+            <td>Same &mdash; banners bid on catalog products; creative assets uploaded separately</td>
+          </tr>
+          <tr>
+            <td><strong>2 &mdash; User Search</strong></td>
+            <td>Triggered by search query or category browse</td>
+            <td>Triggered by page load (homepage hero, category sidebar)</td>
+          </tr>
+          <tr>
+            <td><strong>3 &mdash; Auction Call</strong></td>
+            <td><code>type: "listings"</code> &mdash; returns product IDs</td>
+            <td><code>type: "banners"</code> &mdash; returns product IDs + <code>asset</code> (image URL)</td>
+          </tr>
+          <tr>
+            <td><strong>4 &mdash; Merge &amp; Render</strong></td>
+            <td>Interleaved into organic results at slot positions</td>
+            <td>No merge &mdash; routed to dedicated placements (hero, sidebar, inline)</td>
+          </tr>
+          <tr>
+            <td><strong>5 &mdash; Event Tracking</strong></td>
+            <td>Impression when product card enters viewport</td>
+            <td>Impression when &ge;50% pixels visible for &ge;1&thinsp;s (IAB standard)</td>
+          </tr>
+          <tr>
+            <td><strong>6 &mdash; Attribution</strong></td>
+            <td>CPC / CPA billing</td>
+            <td>CPM billing (per 1,000 viewable impressions) + optional CPC</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <div class="c c-blue fw">
