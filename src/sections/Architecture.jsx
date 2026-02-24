@@ -6,7 +6,7 @@ export default function ArchitectureSection() {
     <div>
       <div className="sh">
         <h2>Full Architecture Diagram</h2>
-        <p className="sd">Drag nodes to rearrange. Click a flow to highlight the request path. Positions are saved automatically.</p>
+        <p className="sd">Click a flow to highlight the request path. Click "Edit Layout" to drag and rearrange nodes.</p>
       </div>
       <ArchitectureDiagram />
     </div>

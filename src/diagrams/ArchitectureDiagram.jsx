@@ -400,7 +400,7 @@ const FLOW_DESCS = {
   all: 'All Flows: Complete architecture showing every component. Click a specific flow to isolate a request path.',
   search: 'Search + Auction: User searches → Frontend → API GW → Search Service (parallel: Topsort Client + ES query) → POST /v2/auctions → winners[] returned → listings merged with organic, banners routed to dedicated placements.',
   catalog: 'Catalog Sync: Catalog Service (existing) writes to PostgreSQL and publishes product.updated to Kafka. Catalog Sync (new) consumes, transforms, and PUTs to Topsort Catalog API.',
-  events: 'Events: Frontend passes resolvedBidId to JS SDK. <strong>Option A:</strong> SDK calls POST /v2/events directly with scoped Marketplace key. <strong>Option B:</strong> SDK proxies through the customer API Gateway which injects the key server-side. Server path: Event Relay batches purchases and sends.',
+  events: 'Events: Frontend passes resolvedBidId to JS SDK, which sends impressions and clicks to POST /v2/events — either directly (scoped key) or proxied through the customer API Gateway. Server-side purchases flow through Event Relay.',
   purchase: 'Purchase: POST /checkout → Order Service → purchase event → Event Relay → Events API → Attribution → Billing → Reports to dashboard.',
 }
 
